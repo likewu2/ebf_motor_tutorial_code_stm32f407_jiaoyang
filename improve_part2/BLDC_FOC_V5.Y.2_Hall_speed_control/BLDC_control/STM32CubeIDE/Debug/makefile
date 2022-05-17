@@ -63,7 +63,7 @@ main-build: BLDC_control.elf secondary-outputs
 
 # Tool invocations
 BLDC_control.elf BLDC_control.map: $(OBJS) $(USER_OBJS) E:\app\julia\ebf_motor_tutorial_code_stm32f407_jiaoyang\improve_part2\BLDC_FOC_V5.Y.2_Hall_speed_control\BLDC_control\STM32CubeIDE\STM32F407IGHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "BLDC_control.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\app\julia\ebf_motor_tutorial_code_stm32f407_jiaoyang\improve_part2\BLDC_FOC_V5.Y.2_Hall_speed_control\BLDC_control\STM32CubeIDE\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BLDC_control.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "BLDC_control.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\app\julia\ebf_motor_tutorial_code_stm32f407_jiaoyang\improve_part2\BLDC_FOC_V5.Y.2_Hall_speed_control\BLDC_control\STM32CubeIDE\STM32F407IGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BLDC_control.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
